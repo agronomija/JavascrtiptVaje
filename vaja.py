@@ -62,7 +62,7 @@ def moje_ime(x='miha'):
 
 moje_ime()
 
-
+print(['X', 'X', 'X', 'X'] == ['X', 'X', 'X', 'X'])
 
 
 

@@ -21,3 +21,17 @@ if (desicion == 'y') {
 
 else if (desicion != 'y') {
     alert('Thanks for cooperation. bye');}
+
+
+var employee = {
+    name: 'John Smith',
+    job: 'engineer',
+    age: 31,
+    namely: function() {
+        return this.name.split(" ")[0].length},
+    namelycons: function() {
+        console.log(this.name.split(" ")[0].length)},
+    printAert: function() {
+        alert('Name is ' + this.name + ', Job is ' + this.job + ', age is ' + this.age)}
+        }
+
