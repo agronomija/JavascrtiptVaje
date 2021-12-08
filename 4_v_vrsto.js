@@ -65,35 +65,92 @@ var Board = {
           ],
     //sprintaj: function() {console.log(this.board)},
     lengthOfY: function() {
-        return this.board.length;},
+        return this.board.length;
+        },
+
 
     lengthOfX: function() {
-        return this.board[0].length;},
+        return this.board[0].length;
+        },
+
 
     checkHorizontal: function() {
-
         for (var i = 0; i < this.lengthOfY(); i++) {
            for (var j = 0; j < 3; j++) {
                console.log(this.board[i].slice(j,j+4))
-               if (arrayEquals(this.board[i].slice(j,j+4), ['X', 'X', 'X', 'X'])){return 'zmagal X'}
+               if (arrayEquals(this.board[i].slice(j,j+4), ['A', 'A', 'A', 'A'])){return 'zmagal A po horizontali'}
                }
 
            console.log('------------------------')
            }
         //return 'hello'
-        }
+        },
 
+    checkVertical: function() {
+        for (var i = 0; i < 6; i++) {
+            for (var j = 0; j < 4; j++) {
+                console.log(this.board[j][i])
+                console.log(this.board[j + 1][i])
+                console.log(this.board[j + 2][i])
+                console.log(this.board[j + 3][i])
+                console.log('-------------------------------------')
+                if (this.board[j][i] == 'A' && //Če so 4 v vrsto dol vrne 'Zmagal B' in prekine zanko
+                    this.board[j + 1][i] == 'A' &&
+                    this.board[j + 2][i] == 'A' &&
+                    this.board[j + 3][i] == 'A') {console.log('Zmagal A')
+                        return 'Zmagal A po vertikali'}
+                else {console.log('ni še zmagal A')}
+            }
+        }
+        },
+
+    checkDiagonalNegative: function() {
+        for (var i = 0; i < 4; i++) {
+            for (var j = 0; j < 3; j++) {
+                console.log(this.board[i][j])
+                console.log(this.board[i+1][j+1])
+                console.log(this.board[i+2][j+2])
+                console.log(this.board[i+3][j+3])
+                console.log('-----------------------')
+                if (this.board[i][j] == 'A' && //preverimo vse diagonale iz leve strani proti dol
+                    this.board[i+1][j+1] == 'A' &&
+                    this.board[i+2][j+2] == 'A' &&
+                    this.board[i+3][j+3] == 'A') {console.log('Zmagal A po diagonali')
+                        return 'Zmagal A po diagonali'}
+                }
+
+            }
+        },
+
+    checkDiagonalPositive: function() {
+        for (var i = 7; i > 3; i--) {
+            for (var j = 6; j > 2; j--) {
+                console.log(this.board[i][j])
+                console.log(this.board[i - 1][j - 1])
+                console.log(this.board[i - 2][j - 2])
+                console.log(this.board[i - 3][j - 3])
+                console.log('-----------------------')
+                if (this.board[i][j] == 'A' && //preverimo vse diagonale iz leve strani proti dol
+                    this.board[i - 1][j - 1] == 'A' &&
+                    this.board[i - 2][j - 2] == 'A' &&
+                    this.board[i - 3][j - 3] == 'A') {console.log('Zmagal A po diagonali')
+                        return 'Zmagal A po diagonali'}
+                }
+
+            }
+        }
     }
 
 
 
 var x = Board
-console.log(Board.lengthOfY())
-console.log(Board.lengthOfX())
+//console.log(Board.lengthOfY())
+//console.log(Board.lengthOfX())
 //console.log(Board.dolzina)
-console.log(Board.board)
+//console.log(Board.board)
 //console.log(Board.sprintaj())
-console.log(Board.checkHorizontal())
-
-console.log(['X', 'X', 'X', 'X'] === ['X', 'X', 'X', 'X'])
-console.log(arrayEquals(['X', 'X', 'X', 'X'],['X', 'X', 'X', 'X']))
+//console.log(Board.checkHorizontal())
+//console.log(Board.checkVertical())
+console.log(Board.checkDiagonalPositive())
+//console.log(['X', 'X', 'X', 'X'] === ['X', 'X', 'X', 'X'])
+//console.log(arrayEquals(['X', 'X', 'X', 'X'],['X', 'X', 'X', 'X']))
