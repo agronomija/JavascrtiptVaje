@@ -55,10 +55,10 @@ function arrayEquals(a, b) {
 
 
 var Board = {
-    board: [[1,2,3,4,5,6],
-             [1,2,3,4,5,6],
-             [1,2,3,4,5,6],
-             [1,2,3,4,5,6],
+    board: [[1,2,3,4,5,'A'],
+             [1,2,3,4,'A',6],
+             [1,2,3,'A',5,6],
+             [1,2,'A',4,5,6],
              [1,2,3,4,5,6],
              [1,2,3,4,5,6],
              [1,2,3,4,5,6]
@@ -123,20 +123,20 @@ var Board = {
         },
 
     checkDiagonalPositive: function() {
-        for (var i = 7; i > 3; i--) {
-            for (var j = 6; j > 2; j--) {
+        for (var i = 6; i > 2; i--) {
+            for (var j = 0; j < 3; j++) {
                 console.log(this.board[i][j])
-                console.log(this.board[i - 1][j - 1])
-                console.log(this.board[i - 2][j - 2])
-                console.log(this.board[i - 3][j - 3])
+                console.log(this.board[i - 1][j + 1])
+                console.log(this.board[i - 2][j + 2])
+                console.log(this.board[i - 3][j + 3])
                 console.log('-----------------------')
                 if (this.board[i][j] == 'A' && //preverimo vse diagonale iz leve strani proti dol
-                    this.board[i - 1][j - 1] == 'A' &&
-                    this.board[i - 2][j - 2] == 'A' &&
-                    this.board[i - 3][j - 3] == 'A') {console.log('Zmagal A po diagonali')
-                        return 'Zmagal A po diagonali'}
+                    this.board[i - 1][j + 1] == 'A' &&
+                    this.board[i - 2][j + 2] == 'A' &&
+                    this.board[i - 3][j + 3] == 'A') {console.log('Zmagal A po diagonali negativni')
+                        return 'Zmagal A po diagonali negativni'}
                 }
-
+            console.log('*********************************')
             }
         }
     }
